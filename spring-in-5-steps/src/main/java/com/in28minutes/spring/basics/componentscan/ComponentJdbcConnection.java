@@ -1,4 +1,4 @@
- package com.in28minutes.spring.basics.componentscan;
+package com.in28minutes.spring.basics.componentscan;
 
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
