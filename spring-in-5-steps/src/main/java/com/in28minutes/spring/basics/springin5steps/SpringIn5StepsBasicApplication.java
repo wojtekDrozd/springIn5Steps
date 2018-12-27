@@ -5,7 +5,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
-import com.in28minutes.spring.basics.springin5steps.proerties.SomeExternalService;
+import com.in28minutes.spring.basics.springin5steps.properties.SomeExternalService;
 
 @Configuration
 @ComponentScan
