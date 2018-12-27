@@ -1,41 +1,26 @@
 package com.in28minutes.spring.basics.springin5steps;
 
-//import org.springframework.boot.SpringApplication;
-//import org.springframework.boot.autoconfigure.SpringBootApplication;
-//import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 
-import com.in28minutes.spring.basics.springin5steps.basic.BinarySearchImpl;
+import com.in28minutes.spring.basics.springin5steps.proerties.SomeExternalService;
 
-//@SpringBootApplication
 @Configuration
-@ComponentScan("com.in28minutes.spring.basics.springin5steps")
+@ComponentScan
+@PropertySource("classpath:app.properties")
 public class SpringIn5StepsBasicApplication {
-	
-	//What are the beans?
-	//What are the dependences?
-	//Where to search for beans? => no needs
 	
 	public static void main(String[] args) {
 		
-		//BinarySearchImpl binarySearch = new BinarySearchImpl(new BubbleSortAlgorithm());
-		//Application Context
 		AnnotationConfigApplicationContext applicationContext = 
-				new AnnotationConfigApplicationContext(SpringIn5StepsBasicApplication.class);
-				//SpringApplication.run(SpringIn5StepsBasicApplication.class, args);
-		BinarySearchImpl binarySearch = applicationContext.getBean(BinarySearchImpl.class);
+				new AnnotationConfigApplicationContext(SpringIn5StepsPropertiesApplication.class);
 		
-		BinarySearchImpl binarySearch1 = applicationContext.getBean(BinarySearchImpl.class);
-		
-		System.out.println(binarySearch);
-		System.out.println(binarySearch1);
-		int result = binarySearch.binarySearch(new int[] {12,4,6}, 3);
-		
-		System.out.println(result);
-		//com.in28minutes.spring.basics.springin5steps.BubbleSortAlgorithm@35645047
-		//4
+		SomeExternalService service = applicationContext.getBean(SomeExternalService.class);
+
+		System.out.println(service.returnServiceURL());
+
 		applicationContext.close();
 		
 	}
